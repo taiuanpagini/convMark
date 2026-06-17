@@ -1,0 +1,125 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Editor textarea */
+.editor-textarea {
+  resize: none;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  tab-size: 2;
+}
+
+.editor-textarea:focus {
+  outline: none;
+}
+
+/* ===== PRINT / PDF STYLES ===== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 20mm 25mm;
+  }
+
+  /* Reset full-screen layout constraints */
+  html, body, #root {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Hide all UI chrome in print */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Undo screen-only flex / overflow-hidden layout */
+  .app-root {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: white !important;
+  }
+
+  .app-main {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .app-split {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Preview pane fills full page width */
+  .print-preview-pane {
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+    background: white !important;
+  }
+
+  /* Remove the scroll wrapper constraints */
+  .print-preview-scroll {
+    overflow: visible !important;
+    height: auto !important;
+    flex: none !important;
+  }
+
+  /* Prose content: fill the full printable area */
+  .print-preview-content {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Keep SVGs and code blocks on one page when possible */
+  svg {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  pre, blockquote, table, figure {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Ensure Mermaid diagrams are fully visible */
+  .mermaid-diagram-wrapper svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
