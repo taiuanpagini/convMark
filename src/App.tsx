@@ -54,25 +54,6 @@ function hello(name) {
 > **Dica:** clique em **Baixar PDF** no topo para gerar e salvar seu documento, incluindo todos os diagramas.
 `
 
-function extractFilename(markdown: string): string {
-  const lines = markdown.trim().split('\n')
-  for (const line of lines) {
-    const trimmed = line.trim()
-    if (trimmed) {
-      return (
-        trimmed
-          .replace(/^#+\s*/, '')
-          .substring(0, 50)
-          .toLowerCase()
-          .replace(/[^a-z0-9\s-]/g, '')
-          .trim()
-          .replace(/\s+/g, '-') || 'documento'
-      )
-    }
-  }
-  return 'documento'
-}
-
 // AppInner: main app component without context providers
 function AppInner() {
   const [markdown, setMarkdown] = useState(DEFAULT_MARKDOWN)

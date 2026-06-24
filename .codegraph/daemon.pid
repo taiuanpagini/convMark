@@ -1,6 +1,6 @@
 {
-  "pid": 11718,
-  "version": "0.9.9",
+  "pid": 3324,
+  "version": "1.0.1",
   "socketPath": "/data/projects/019eb7b1-af15-7689-9b49-a9ae5d189547/.codegraph/daemon.sock",
-  "startedAt": 1781204500693
+  "startedAt": 1782313265493
 }
